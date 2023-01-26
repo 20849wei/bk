@@ -1,15 +1,95 @@
-<!doctype html>
+                                      
+
+<!DOCTYPE html>
+
 <html>
-    <head> 
-        <meta charset="UTF-8"> 
-        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
-        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-        <title>我的blog</title>
-    </head> 
-    <body> 
-        <h1>我的博客</h1>
-        <h1>正在建设</h1> 
-        <h2>哈哈</h2> 
-       <h5>404</h5>
-    </body>
-</html>
+
+<head>
+
+</head>
+
+<body>
+
+<canvas id="canvas"></canvas>
+
+<style type="text/css">
+
+    body {
+
+        margin: 0;
+
+        padding: 0;        overflow: hidden;
+
+    }
+
+</style>
+
+<script type="text/javascript">
+
+    var canvas = document.getElementById('canvas');
+
+    var ctx = canvas.getContext('2d');
+
+    var texts = '2084944332<鸡>'.split('');
+
+    var fontSize = 20;
+
+    canvas.height = window.screen.height="2000";
+
+    canvas.width = window.screen.width="1000";
+
+    var columns = canvas.width/fontSize;
+
+    var drops = [];
+
+    for (var x = 0; x < columns; x++) {
+
+        drops[x] = 1;
+
+    }
+
+    function draw() {
+
+        //透明 -> 不透明
+
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        //文字
+
+        ctx.fillStyle = 'green';
+
+        ctx.font = fontSize + 'px arial';
+
+        
+
+        //逐行输出文字
+
+        for (var i = 0; i < drops.length; i++) {
+
+            //texts中随机取一个数
+
+            var text = texts[Math.floor(Math.random() * texts.length)];
+
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height || Math.random() > 0.95) {
+
+                drops[i] = 0;
+
+            }
+
+            drops[i]++;
+
+        }
+
+    }
+
+    setInterval(draw, 30);
+
+</script>
+
+</body>
+
+<html>
