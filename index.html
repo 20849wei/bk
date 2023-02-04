@@ -1,96 +1,12 @@
-                                      
-
 <!DOCTYPE html>
-
 <html>
-
-<head>
-
-</head>
-
-<body>
-
-<canvas id="canvas"></canvas>
-
-<style type="text/css">
-
-    body {
-
-        margin: 0;
-
-        padding: 0;        overflow: hidden;
-
-    }
-
-</style>
-
-<script type="text/javascript">
-
-    var canvas = document.getElementById('canvas');
-
-    var ctx = canvas.getContext('2d');
-
-    var texts = '2084944332<鸡>'.split('');
-
-    var fontSize = 20;
-
-    canvas.height = window.screen.height="2000";
-
-    canvas.width = window.screen.width="1000";
-
-    var columns = canvas.width/fontSize;
-
-    var drops = [];
-
-    for (var x = 0; x < columns; x++) {
-
-        drops[x] = 1;
-
-    }
-
-    function draw() {
-
-        //透明 -> 不透明
-
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        //文字
-
-        ctx.fillStyle = 'green';
-
-        ctx.font = fontSize + 'px arial';
-
-        
-
-        //逐行输出文字
-
-        for (var i = 0; i < drops.length; i++) {
-
-            //texts中随机取一个数
-
-            var text = texts[Math.floor(Math.random() * texts.length)];
-
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-            if (drops[i] * fontSize > canvas.height || Math.random() > 0.95) {
-
-                drops[i] = 0;
-
-            }
-
-            drops[i]++;
-
-        }
-
-    }
-
-    setInterval(draw, 30);
-
-</script>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>阿维</title>
+  </head>
+  <body>	
+	<h1>SP.</h1>
+	<p>“没有人能摆脱你的过去，没有人能摆脱你的宿命”</p>  
 <video src="ckwlq.mp4" width="100%"autoplay="autoplay"></video>
-</body>
-
-<html>
-
+  </body>
+</html>
